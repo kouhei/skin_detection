@@ -72,5 +72,5 @@ fastlane/test_output
 .vscode/
 inputs/
 outputs/
-.dat
-.jpg
+*.dat
+*.jpg
