@@ -66,8 +66,8 @@ if __name__ == '__main__':
     # cap = cv2.VideoCapture(0)
     # while cap.isOpened():
         # _, frame = cap.read()
-    image_path = "./inputs/hayano2.jpg"
-    output_path = "./outputs/hayano2.jpg"
+    image_path = "./inputs/reiji.jpg"
+    output_path = "./outputs/reiji.jpg"
     frame = cv2.imread(image_path)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
@@ -81,8 +81,9 @@ if __name__ == '__main__':
             #文字の書き込み
             cv2.putText(frame,str(i),(points[0],points[1]),font, 1,(255,255,0))
 
-        cv2.rectangle(frame, (landmark[17][0], landmark[29][1]), (landmark[40][0], landmark[32][1]), color, thickness=1)
-        cv2.rectangle(frame, (landmark[43][0], landmark[29][1]), (landmark[26][0], landmark[34][1]), color, thickness=1)
+        cv2.rectangle(frame, (landmark[17][0], landmark[29][1]), (landmark[40][0], landmark[32][1]), color, thickness=2)
+        cv2.rectangle(frame, (landmark[43][0], landmark[29][1]), (landmark[26][0], landmark[34][1]), color, thickness=2)
+        cv2.rectangle(frame, (landmark[19][0], landmark[19][1] - (landmark[37][1]-landmark[19][1])), (landmark[24][0], landmark[24][1]), color, thickness=2)
 
     cv2.imwrite(output_path, frame)
         # cv2.imshow("video frame", frame)
