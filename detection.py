@@ -63,32 +63,32 @@ def facemark(gray_img):
     return landmarks
 
 if __name__ == '__main__':
-    # cap = cv2.VideoCapture(0)
-    # while cap.isOpened():
-        # _, frame = cap.read()
-    image_path = "./inputs/reiji.jpg"
-    output_path = "./outputs/reiji.jpg"
-    frame = cv2.imread(image_path)
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    cap = cv2.VideoCapture(0)
+    while cap.isOpened():
+        _, frame = cap.read()
+        # image_path = "./inputs/test_glass.jpg"
+        # output_path = "./outputs/test_glass.jpg"
+        # frame = cv2.imread(image_path)
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    landmarks = facemark(gray)
+        landmarks = facemark(gray)
 
-    color = (255,0,0)
-    font = cv2.FONT_HERSHEY_PLAIN
-    for landmark in landmarks:
-        for i, points in enumerate(landmark):
-            # cv2.drawMarker(frame, (points[0], points[1]), (21, 255, 12))
-            #文字の書き込み
-            cv2.putText(frame,str(i),(points[0],points[1]),font, 1,(255,255,0))
+        color = (255,0,0)
+        font = cv2.FONT_HERSHEY_PLAIN
+        for landmark in landmarks:
+            for i, points in enumerate(landmark):
+                # cv2.drawMarker(frame, (points[0], points[1]), (21, 255, 12))
+                #文字の書き込み
+                cv2.putText(frame,str(i),(points[0],points[1]),font, 1,(255,255,0))
 
-        cv2.rectangle(frame, (landmark[17][0], landmark[29][1]), (landmark[40][0], landmark[32][1]), color, thickness=2)
-        cv2.rectangle(frame, (landmark[43][0], landmark[29][1]), (landmark[26][0], landmark[34][1]), color, thickness=2)
-        cv2.rectangle(frame, (landmark[19][0], landmark[19][1] - (landmark[37][1]-landmark[19][1])), (landmark[24][0], landmark[24][1]), color, thickness=2)
+            cv2.rectangle(frame, (landmark[17][0], landmark[29][1]), (landmark[40][0], landmark[32][1]), color, thickness=2)
+            cv2.rectangle(frame, (landmark[43][0], landmark[29][1]), (landmark[26][0], landmark[34][1]), color, thickness=2)
+            cv2.rectangle(frame, (landmark[19][0], landmark[19][1] - (landmark[37][1]-landmark[19][1])), (landmark[24][0], landmark[24][1]), color, thickness=2)
 
-    cv2.imwrite(output_path, frame)
-        # cv2.imshow("video frame", frame)
-        # if cv2.waitKey(25) & 0xFF == ord('q'):
-        #     break
+        # cv2.imwrite(output_path, frame)
+        cv2.imshow("video frame", frame)
+        if cv2.waitKey(25) & 0xFF == ord('q'):
+            break
 
-    # cap.release()
-    # cv2.destroyAllWindows()
+    cap.release()
+    cv2.destroyAllWindows()
