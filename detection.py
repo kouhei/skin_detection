@@ -12,11 +12,10 @@ import os
 CASCADE_PATH = os.path.dirname(os.path.abspath(__file__)) + "/haarcascades/"
 LEARNED_MODEL_PATH = os.path.dirname(
     os.path.abspath(__file__)) + "/learned-models/"
+#predictor = dlib.shape_predictor(
+#    LEARNED_MODEL_PATH + 'helen-dataset.dat')
 predictor = dlib.shape_predictor(
-    LEARNED_MODEL_PATH + 'helen-dataset.dat')
-predictor = dlib.shape_predictor(
-    os.path.dirname(os.path.abspath(__file__))+"/shape_predictor_68_face_landmarks.dat"
-)
+    os.path.dirname(os.path.abspath(__file__))+"/shape_predictor_68_face_landmarks.dat")
 face_cascade = cv2.CascadeClassifier(
     CASCADE_PATH + 'haarcascade_frontalface_default.xml')
 
@@ -66,8 +65,8 @@ if __name__ == '__main__':
     # cap = cv2.VideoCapture(0)
     # while cap.isOpened():
         # _, frame = cap.read()
-    image_path = "./inputs/reiji.jpg"
-    output_path = "./outputs/reiji.jpg"
+    image_path = "./inputs/hayano2.jpg"
+    output_path = "./outputs/hayano2.jpg"
     frame = cv2.imread(image_path)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
