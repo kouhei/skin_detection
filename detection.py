@@ -1,6 +1,7 @@
 """
 dlib(とopenCV)使って顔器官検出
 https://qiita.com/kekeho/items/0b2d4ed5192a4c90a0ac
+http://tadaoyamaoka.hatenablog.com/entry/2016/09/23/105815
 """
 
 import cv2
